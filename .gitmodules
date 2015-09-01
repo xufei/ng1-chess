@@ -1,0 +1,3 @@
+[submodule "src/models/chess"]
+	path = src/models/chess
+	url = https://github.com/xufei/chess.git
