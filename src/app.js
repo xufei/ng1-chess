@@ -9,13 +9,15 @@ import Chariot from "./models/chess/chariot";
 import Cannon from "./models/chess/cannon";
 import Solider from "./models/chess/soldier";
 
-import Color from "./models/chess/color";
-import Type from "./models/chess/type";
-import State from "./models/chess/state";
 
 import Factory from "./models/chess/factory";
 
-import Game from "./models/chess/game";
 import Player from "./models/chess/player";
 
-angular.module("chess", []);
+
+import ChessController from "./controllers/chess";
+import ChessBoardController from "./controllers/chessboard";
+
+angular.module("chess", [])
+	.controller("ChessController", ChessController)
+	.controller("ChessBoardController", ChessBoardController);
