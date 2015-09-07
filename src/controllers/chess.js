@@ -1,16 +1,12 @@
 "use strict";
 
-
 import Color from "../models/chess/chess/color";
 import State from "../models/chess/state";
 import PlayerType from "../models/chess/type";
 import Game from "../models/chess/game";
 import Player from "../models/chess/player";
 
-
-var offsetX = 40;
-var offsetY = 40;
-var gridSize = 60;
+import Setting from "../setting";
 
 export default class ChessController {
 
@@ -35,27 +31,27 @@ export default class ChessController {
 		};
 
 		$scope.chessX = function (chess) {
-			return offsetX + chess.x * gridSize;
+			return Setting.offsetX + chess.x * Setting.gridSize;
 		};
 
 		$scope.chessY = function (chess) {
-			return offsetY + chess.y * gridSize;
+			return Setting.offsetY + chess.y * Setting.gridSize;
 		};
 
 		$scope.canGoX = function (chess) {
-			return offsetX + (chess.x - 0.5) * gridSize;
+			return Setting.offsetX + (chess.x - 0.5) * Setting.gridSize;
 		};
 
 		$scope.canGoY = function (chess) {
-			return offsetY + (chess.y - 0.5) * gridSize;
+			return Setting.offsetY + (chess.y - 0.5) * Setting.gridSize;
 		};
 
 		$scope.canAttackX = function (chess) {
-			return offsetX + (chess.x - 0.5) * gridSize;
+			return Setting.offsetX + (chess.x - 0.5) * Setting.gridSize;
 		};
 
 		$scope.canAttackY = function (chess) {
-			return offsetY + (chess.y - 0.5) * gridSize;
+			return Setting.offsetY + (chess.y - 0.5) * Setting.gridSize;
 		};
 
 		$scope.select = function (game, chess) {

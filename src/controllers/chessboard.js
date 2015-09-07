@@ -1,15 +1,12 @@
 "use strict";
 
+import Setting from "../setting";
 
 export default class ChessBoardController {
 	constructor($scope) {
-		var offsetX = 40;
-		var offsetY = 40;
-		var gridSize = 60;
-
-		$scope.offsetX = offsetX;
-		$scope.offsetY = offsetY;
-		$scope.gridSize = gridSize;
+		$scope.offsetX = Setting.offsetX;
+		$scope.offsetY = Setting.offsetY;
+		$scope.gridSize = Setting.gridSize;
 		$scope.pathArr = [];
 
 		init();
@@ -55,8 +52,8 @@ export default class ChessBoardController {
 
 		// 生成线的路径
 		function drawLine(x1, y1, x2, y2) {
-			return "M" + (offsetX + x1 * gridSize) + "," + (offsetY + y1 * gridSize)
-				+ " L" + (offsetX + x2 * gridSize) + "," + (offsetY + y2 * gridSize);
+			return "M" + (Setting.offsetX + x1 * Setting.gridSize) + "," + (Setting.offsetY + y1 * Setting.gridSize)
+				+ " L" + (Setting.offsetX + x2 * Setting.gridSize) + "," + (Setting.offsetY + y2 * Setting.gridSize);
 		}
 
 		// 生成十字花
