@@ -21,7 +21,7 @@ export default class ChessController {
 			blackPlayer.game = game;
 			game.blackPlayer = blackPlayer;
 
-			//game.init();
+			game.init();
 
 			//game.addLogger(ConsoleLogger);
 			$scope.games.push(game);
