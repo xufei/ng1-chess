@@ -5,8 +5,15 @@ import Color from "../models/chess/chess/color";
 import State from "../models/chess/state";
 import PlayerType from "../models/chess/type";
 import Game from "../models/chess/game";
+import Player from "../models/chess/player";
+
+
+var offsetX = 40;
+var offsetY = 40;
+var gridSize = 60;
 
 export default class ChessController {
+
 	constructor($scope) {
 		$scope.games = [];
 
