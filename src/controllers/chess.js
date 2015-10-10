@@ -14,13 +14,13 @@ export default class ChessController {
 		$scope.games = [];
 
 		$scope.createGame = function () {
-			var game = new Game();
+			let game = new Game();
 
-			var redPlayer = new Player("Local Player 1", Color.RED, PlayerType.LOCAL);
+			let redPlayer = new Player("Local Player 1", Color.RED, PlayerType.LOCAL);
 			redPlayer.game = game;
 			game.redPlayer = redPlayer;
 
-			var blackPlayer = new Player("Local Player 2", Color.BLACK, PlayerType.LOCAL);
+			let blackPlayer = new Player("Local Player 2", Color.BLACK, PlayerType.LOCAL);
 			blackPlayer.game = game;
 			game.blackPlayer = blackPlayer;
 
@@ -66,13 +66,13 @@ export default class ChessController {
 			game.currentPlayer.attack(position);
 		};
 
-		var colors = {
+		let colors = {
 			"1": "red",
 			"0": "",
 			"-1": "black"
 		};
 
-		var types = ["blank", "soldier", "cannon", "chariot", "horse", "staff", "guard", "general"];
+		let types = ["blank", "soldier", "cannon", "chariot", "horse", "staff", "guard", "general"];
 
 		$scope.symbol = function (chess) {
 			return "#" + colors[chess.color] + "-" + types[chess.type];
