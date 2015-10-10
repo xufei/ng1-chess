@@ -1,5 +1,3 @@
-"use strict";
-
 import Setting from "../setting";
 
 export default class ChessBoardController {
@@ -12,37 +10,36 @@ export default class ChessBoardController {
 		init();
 
 		function init() {
-			var pathArr = [];
-			var i, j;
+			let pathArr = [];
 
 			// 横线
-			for (i = 1; i < 9; i++) {
+			for (let i = 1; i < 9; i++) {
 				pathArr.push(drawLine(0, i, 8, i));
 			}
 
 			// 竖线
-			for (i = 1; i < 8; i++) {
+			for (let i = 1; i < 8; i++) {
 				pathArr.push(drawLine(i, 0, i, 4));
 				pathArr.push(drawLine(i, 5, i, 9));
 			}
 
 			// 九宫格的线
-			for (i = 0; i < 2; i++) {
-				for (j = 0; j < 2; j++) {
+			for (let i = 0; i < 2; i++) {
+				for (let j = 0; j < 2; j++) {
 					pathArr.push(drawLine(3 + 2 * i, 7 * j, 5 - 2 * i, 2 + 7 * j));
 				}
 			}
 
 			// 炮位
-			for (i = 0; i < 2; i++) {
-				for (j = 0; j < 2; j++) {
+			for (let i = 0; i < 2; i++) {
+				for (let j = 0; j < 2; j++) {
 					pathArr = pathArr.concat(drawStar(1 + i * 6, 2 + j * 5));
 				}
 			}
 
 			// 兵位
-			for (i = 0; i < 5; i++) {
-				for (j = 0; j < 2; j++) {
+			for (let i = 0; i < 5; i++) {
+				for (let j = 0; j < 2; j++) {
 					pathArr = pathArr.concat(drawStar(i * 2, 3 + j * 3));
 				}
 			}
@@ -58,11 +55,11 @@ export default class ChessBoardController {
 
 		// 生成十字花
 		function drawStar (x, y) {
-			var arr = [];
-			var distance = 1 / 10;
-			var length = 1 / 4;
+			let arr = [];
+			let distance = 1 / 10;
+			let length = 1 / 4;
 
-			var startX, startY, endX, endY;
+			let startX, startY, endX, endY;
 
 			// 左边画一半
 			if (x != 0) {
