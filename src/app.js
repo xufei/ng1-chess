@@ -1,5 +1,3 @@
-import angular from "angular";
-
 import ChessController from "./controllers/chess";
 import ChessBoardController from "./controllers/chessboard";
 

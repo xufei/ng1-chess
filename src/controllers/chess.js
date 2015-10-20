@@ -1,5 +1,3 @@
-"use strict";
-
 import Color from "../models/chess/chess/color";
 import State from "../models/chess/state";
 import PlayerType from "../models/chess/type";
@@ -13,7 +11,7 @@ export default class ChessController {
 	constructor($scope) {
 		$scope.games = [];
 
-		$scope.createGame = function () {
+		$scope.createGame = () => {
 			let game = new Game();
 
 			let redPlayer = new Player("Local Player 1", Color.RED, PlayerType.LOCAL);
@@ -30,41 +28,18 @@ export default class ChessController {
 			$scope.games.push(game);
 		};
 
-		$scope.chessX = function (chess) {
-			return Setting.offsetX + chess.x * Setting.gridSize;
-		};
+		$scope.chessX = chess => (Setting.offsetX + chess.x * Setting.gridSize);
+		$scope.chessY = chess => (Setting.offsetY + chess.y * Setting.gridSize);
 
-		$scope.chessY = function (chess) {
-			return Setting.offsetY + chess.y * Setting.gridSize;
-		};
+		$scope.canGoX = chess => (Setting.offsetX + (chess.x - 0.5) * Setting.gridSize);
+		$scope.canGoY = chess => (Setting.offsetY + (chess.y - 0.5) * Setting.gridSize);
 
-		$scope.canGoX = function (chess) {
-			return Setting.offsetX + (chess.x - 0.5) * Setting.gridSize;
-		};
-
-		$scope.canGoY = function (chess) {
-			return Setting.offsetY + (chess.y - 0.5) * Setting.gridSize;
-		};
-
-		$scope.canAttackX = function (chess) {
-			return Setting.offsetX + (chess.x - 0.5) * Setting.gridSize;
-		};
-
-		$scope.canAttackY = function (chess) {
-			return Setting.offsetY + (chess.y - 0.5) * Setting.gridSize;
-		};
-
-		$scope.select = function (game, chess) {
-			game.currentPlayer.select(chess);
-		};
-
-		$scope.move = function (game, position) {
-			game.currentPlayer.move(position);
-		};
-
-		$scope.attack = function (game, position) {
-			game.currentPlayer.attack(position);
-		};
+		$scope.canAttackX = chess => (Setting.offsetX + (chess.x - 0.5) * Setting.gridSize);
+		$scope.canAttackY = chess => (Setting.offsetY + (chess.y - 0.5) * Setting.gridSize);
+		
+		$scope.select = (game, chess) => game.currentPlayer.select(chess);
+		$scope.move = (game, position) => game.currentPlayer.move(position);
+		$scope.attack = (game, position) => game.currentPlayer.attack(position);
 
 		let colors = {
 			"1": "red",
@@ -74,9 +49,7 @@ export default class ChessController {
 
 		let types = ["blank", "soldier", "cannon", "chariot", "horse", "staff", "guard", "general"];
 
-		$scope.symbol = function (chess) {
-			return "#" + colors[chess.color] + "-" + types[chess.type];
-		};
+		$scope.symbol = chess => ("#" + colors[chess.color] + "-" + types[chess.type]);
 	}
 }
 
